@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CleanCity - Smart Waste Management</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-sky-50 via-purple-50 to-pink-50 min-h-screen">
+
+<nav class="bg-gradient-to-r from-sky-400 to-purple-500 text-white px-6 py-4">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <h1 class="text-xl font-bold">♻️ CleanCity</h1>
+    <span class="text-sm hidden sm:block">
+      Smart Waste Management
+    </span>
+  </div>
+</nav>
+
+<section class="bg-gradient-to-r from-sky-300 via-purple-300 to-pink-300 text-white text-center py-12 px-4">
+
+  <h2 class="text-3xl md:text-4xl font-bold mb-3">
+    Keep Your City Clean 🌍
+  </h2>
+
+  <p class="text-lg">
+    Report waste and help create a cleaner environment.
+  </p>
+
+  <button
+    onclick="scrollToReport()"
+    class="mt-5 bg-white text-purple-600 px-6 py-2 rounded-full font-bold shadow">
+    Report Waste
+  </button>
+
+</section>
+<section class="max-w-6xl mx-auto px-5 py-8">
+
+  <h2 class="text-2xl font-bold text-purple-600 text-center mb-6">
+    Waste Categories
+  </h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+    <div class="bg-white p-5 rounded-2xl shadow-md text-center">
+      <div class="text-4xl">🥤</div>
+      <h3 class="font-bold mt-2">Plastic</h3>
+      <p class="text-sm text-gray-500">Bottles & wrappers</p>
+    </div>
+
+    <div class="bg-white p-5 rounded-2xl shadow-md text-center">
+      <div class="text-4xl">🍎</div>
+      <h3 class="font-bold mt-2">Food Waste</h3>
+      <p class="text-sm text-gray-500">Organic waste</p>
+    </div>
+
+    <div class="bg-white p-5 rounded-2xl shadow-md text-center">
+      <div class="text-4xl">📄</div>
+      <h3 class="font-bold mt-2">Paper</h3>
+      <p class="text-sm text-gray-500">Paper & cardboard</p>
+    </div>
+
+    <div class="bg-white p-5 rounded-2xl shadow-md text-center">
+      <div class="text-4xl">🗑️</div>
+      <h3 class="font-bold mt-2">Other</h3>
+      <p class="text-sm text-gray-500">Other waste</p>
+    </div>
+  </div>
+</section>
+
+<section id="report"
+  class="max-w-lg mx-auto bg-white p-6 mx-5 rounded-2xl shadow-xl">
+
+  <h2 class="text-2xl font-bold text-purple-600 mb-5">
+    📍 Report Waste
+  </h2>
+  <label class="font-semibold">
+    Waste Location
+  </label>
+
+  <input
+    id="location"
+    type="text"
+    placeholder="Enter location"
+    class="w-full border border-purple-200 p-3 rounded-lg mt-2 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-300">
+
+  <label class="font-semibold">
+    Waste Type
+  </label>
+
+  <select
+    id="wasteType"
+    class="w-full border border-purple-200 p-3 rounded-lg mt-2 mb-4">
+
+    <option>Plastic</option>
+    <option>Food Waste</option>
+    <option>Paper</option>
+    <option>Other</option>
+
+  </select>
+  <label class="font-semibold">
+    Upload Waste Image
+  </label>
+
+  <input
+    id="imageInput"
+    type="file"
+    accept="image/*"
+    class="w-full border border-purple-200 p-3 rounded-lg mt-2 mb-4">
+
+  <img
+    id="preview"
+    class="hidden w-full h-52 object-cover rounded-xl mb-4"
+    alt="Waste Preview">
+  <button
+    onclick="reportWaste()"
+    class="w-full bg-gradient-to-r from-sky-400 to-purple-500
+           hover:from-purple-500 hover:to-pink-400
+           text-white p-3 rounded-lg font-bold shadow">
+
+    🚀 Submit Report
+
+  </button>
+
+  <p id="message" class="text-center mt-4 font-semibold"></p>
+
+</section>
+<section class="max-w-5xl mx-auto px-5 py-10">
+
+  <h2 class="text-2xl font-bold text-purple-600 text-center mb-6">
+    📊 Community Impact
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+
+    <div class="bg-white p-6 rounded-2xl shadow text-center">
+      <h3 id="reports"
+        class="text-4xl font-bold text-purple-500">
+        0
+      </h3>
+
+      <p class="text-gray-600 mt-2">
+        Reports Submitted
+      </p>
+    </div>
+    <div class="bg-white p-6 rounded-2xl shadow text-center">
+
+      <h3 class="text-4xl font-bold text-sky-500">
+        128
+      </h3>
+
+      <p class="text-gray-600 mt-2">
+        Waste Collected
+      </p>
+    </div>
+    <div class="bg-white p-6 rounded-2xl shadow text-center">
+
+      <h3 class="text-4xl font-bold text-pink-500">
+        94%
+      </h3>
+
+      <p class="text-gray-600 mt-2">
+        Clean-up Rate
+      </p>
+    </div></div>
+</section>
+
+<footer
+  class="bg-gradient-to-r from-purple-400 to-pink-400
+         text-white text-center p-5 mt-5">
+
+  <p class="font-semibold">
+    ♻️ CleanCity
+  </p>
+  <p class="text-sm mt-1">
+    Clean Environment • Better Future 🌍
+  </p>
+</footer>
+<script>
+document.getElementById("imageInput").addEventListener("change", function () {
+
+  let file = this.files[0];
+  let preview = document.getElementById("preview");
+
+  if (file) {
+    preview.src = URL.createObjectURL(file);
+    preview.classList.remove("hidden");
+
+  }
+});
+let reportCount = 0;
+function reportWaste() {
+
+  let location =
+    document.getElementById("location").value.trim();
+  let waste =
+    document.getElementById("wasteType").value;
+  let image =
+    document.getElementById("imageInput").files[0];
+  let message =
+    document.getElementById("message");
+  if (location === "") {
+    message.innerHTML =
+      "⚠️ Please enter the waste location.";
+    message.className =
+      "text-center mt-4 font-semibold text-red-500";
+    return;
+  }
+  if (!image) {
+    message.innerHTML =
+      "⚠️ Please upload a waste image.";
+
+    message.className =
+      "text-center mt-4 font-semibold text-red-500";
+
+    return;
+  }
+  reportCount++;
+
+  document.getElementById("reports").innerText =
+    reportCount;
+  message.innerHTML =
+    "✅ " + waste +
+    " waste reported successfully!";
+  message.className =
+    "text-center mt-4 font-semibold text-purple-600";
+  document.getElementById("location").value = "";
+}
+function scrollToReport() {
+
+  document.getElementById("report")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+}
+</script>
+</body>
+</html>
+  
